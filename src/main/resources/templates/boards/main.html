@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{ layout :: head('게시판')}">
+</head>
+<body>
+    <header th:replace="~{layout :: navi-bar}" class="p-3 text-bg-dark"></header>
+
+        <main class="container">
+            <h3>게시판</h3>
+            <button class="btn btb-primary" onclick="location.href='/boards/write-form'">글쓰기</button>
+
+            <!-- 게시판 출력  -->
+            <div class="content">
+                <div class="row m-3 mb-1" >
+                    <div class="col-1" th:text="번호"></div>
+                    <div class="col-4" th:text="제목"></div>
+                    <div class="col-2" th:text="작성자"></div>
+                    <div class="col-3" th:text="작성일"></div>
+                    <div class="col-2" th:text="조회"></div>
+                </div>
+                <div class="row mb-3" th:each="board : ${boards}">
+                    <div class="col-1" th:text="${board.Id}"></div>
+                    <div class="col-4"> <a class=" text-decoration-none text-dark fs-semibold" th:href="@{/boards/{id}(id=${board.id}) }" th:text="${board.title}"></a></div>
+                    <div class="col-2" th:text="${board.userEntity.userNickName}"></div>
+                    <div class="col-3" th:text="${#temporals.format(board.regDate, 'yyyy-MM-dd')}"></div>
+                    <div class="col-2" th:text="${board.hit}"></div>
+                </div>
+            </div>
+        </main>
+</body>
+
+</html>

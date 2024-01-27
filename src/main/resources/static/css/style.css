@@ -1,0 +1,15 @@
+
+.content{
+    width: 80%;
+    border: 1 solid gray;
+}
+
+.board-content{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.detail-date{
+    color: #777777
+}

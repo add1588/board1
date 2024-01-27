@@ -1,0 +1,23 @@
+server.servlet.encoding.force-response: true
+server:
+  port: 8082
+
+spring:
+    datasource:
+      url: jdbc:mysql://localhost:3306/my_boards?useSSL=false&serverTimezone=Asia/Seoul
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 1234
+
+    thymeleaf:
+      cache: false
+
+    jpa:
+      database-platform: org.hibernate.dialect.MySQLDialect
+      open-in-veiw: true
+      show-sql: true
+      properties:
+        hibernate.format_sql: true
+        dialect: org.hibernate.dialect.MySQL8InnoDBDialect
+      hibernate:
+        ddl-auto: update

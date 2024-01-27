@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head th:replace="~{ layout :: head('글쓰기')}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <header th:replace="~{layout :: navi-bar}" class="p-3 text-bg-dark"></header>
+    <main class="container m-5 p-3 d-flex flex-column" >
+        <p class="fs-4 fs-bold " th:text="${nick_name}"></p>
+        <form th:action="@{/boards/write}" method="post">
+            <input type="hidden" name="userId" th:value="${user_id}">
+            <div class="mb-3">
+                <label for="title" class="form-label">제목</label>
+                <input type="text" class="form-control" id="title" name="boardTitle" placeholder="제못을 입력하세요">
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">내용</label>
+                <textarea class="form-control" id="content" name="boardContent" rows="3"></textarea>
+            </div>
+            <div class="mb-3 d-flex  justify-content-center">
+                <div class=" col-6 d-flex flex-row justify-content-center" >
+                    <input type="submit" class="col-6 btn btn-primary" value="저장">
+                    <a class="btn btn-primary ms-1 col-6" href="/boards/main">취소</a>
+                </div>
+            </div>
+        </form>
+    </main>
+
+</body>
+</html>
